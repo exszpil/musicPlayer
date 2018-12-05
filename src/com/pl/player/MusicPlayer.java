@@ -14,10 +14,10 @@ public class MusicPlayer extends JPanel implements ActionListener {
     JFrame windowPlayer = new JFrame("A Window");
 
     // creating buttons;
-    JLabel label = new JLabel("A Music Player");
+    JLabel label = new JLabel("WAV Music Player");
 
     // adding buttons
-    JButton addButton = new JButton("Adding Song");
+    JButton addButton = new JButton("Add a Song");
     JButton playButton = new JButton("Play Music");
     JButton stopButton = new JButton("Stop Playing");
     //adding font
@@ -29,7 +29,7 @@ public class MusicPlayer extends JPanel implements ActionListener {
     FileNameExtensionFilter filter = new FileNameExtensionFilter("WAV name", "wav");
     int valueReturned;
     // displaying chosen file in the CcomboBox
-    String[] musicList = new String[5];
+    String[] musicList = new String[3];
     int index = 0;
     File selectedFile; // representing selected file
     File sound;
@@ -62,22 +62,22 @@ public class MusicPlayer extends JPanel implements ActionListener {
         // setting font
 
         addButton.setFont(buttonFont);
-        addButton.setBackground(Color.blue);
-        addButton.setForeground(Color.yellow);   // font color
+        addButton.setBackground(Color.white);
+        addButton.setForeground(Color.black);   // font color
         windowPlayer.add(addButton, BorderLayout.LINE_START);
 
         playButton.setFont(buttonFont);
-        playButton.setBackground(Color.blue);
+        playButton.setBackground(Color.white);
         playButton.setForeground(Color.green);  // font color
         windowPlayer.add(playButton, BorderLayout.CENTER);
 
         stopButton.setFont(buttonFont);
-        stopButton.setBackground(Color.blue);
+        stopButton.setBackground(Color.white);
         stopButton.setForeground(Color.red);  // font color
         windowPlayer.add(stopButton, BorderLayout.LINE_END);
 
         // adding dropdown to the main view
-        dropdown.setBackground(Color.blue);
+        dropdown.setBackground(Color.white);
         dropdown.setForeground(Color.darkGray);
         windowPlayer.add(dropdown, BorderLayout.PAGE_START);
 
@@ -136,21 +136,6 @@ public class MusicPlayer extends JPanel implements ActionListener {
                     clip.start();
                 }
 
-                else if (dropdown.getSelectedIndex() == 3){
-                    sound = new File(musicList[dropdown.getSelectedIndex()]);
-                    ais = AudioSystem.getAudioInputStream(sound);
-                    clip = AudioSystem.getClip();
-                    clip.open(ais);
-                    clip.start();
-                }
-
-                else if (dropdown.getSelectedIndex() == 4){
-                    sound = new File(musicList[dropdown.getSelectedIndex()]);
-                    ais = AudioSystem.getAudioInputStream(sound);
-                    clip = AudioSystem.getClip();
-                    clip.open(ais);
-                    clip.start();
-                }
             }
             catch (Exception exception) {JOptionPane.showMessageDialog(null,exception);}
 
